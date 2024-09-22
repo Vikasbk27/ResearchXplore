@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #f2f2f2, #fff); /* gradient background */
+            font-family: Arial, sans-serif;
+        }
+       .jumbotron {
+            background-color: #333; /* dark gray background */
+            color: #fff; /* white text */
+        }
+       .nav-link {
+            color: #fff; /* white text */
+            text-decoration: none;
+        }
+       .nav-link:hover {
+            color: #ccc; /* light gray text on hover */
+        }
+       .container {
+            max-width: 800px; /* limit the width of the container */
+            margin: 40px auto; /* add some margin */
+            padding: 20px; /* add some padding */
+            background-color: #fff; /* white background */
+            border: 1px solid #ddd; /* light gray border */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add some shadow */
+        }
+       .form-group {
+            margin-bottom: 20px; /* add some margin */
+        }
+       .form-control {
+            height: 40px; /* increase the height of the input fields */
+            padding: 10px; /* add some padding */
+            font-size: 16px; /* increase the font size */
+        }
+       .btn-primary {
+            background-color: #337ab7; /* blue background */
+            border-color: #2e6da4; /* blue border */
+            color: #fff; /* white text */
+            padding: 10px 20px; /* add some padding */
+            font-size: 16px; /* increase the font size */
+        }
+       .btn-primary:hover {
+            background-color: #23527c; /* darker blue background on hover */
+            border-color: #1d4e7a; /* darker blue border on hover */
+        }
+    </style>
+</head>
+<body>
+    <header class="jumbotron text-center">
+        <h1 class="display-5">Research Xlpore</h1>
+        <nav class="nav justify-content-center">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+            <a class="nav-link" href="/addPaper">Add Paper</a>
+            <a class="nav-link" href="/search">Search</a>
+            <a class="nav-link" href="/logout">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="text-center">Profile</h1>
+        <form action="/profile" method="post">
+            <div class="form-group">
+                <label for="username" class="col-form-label">Username:</label>
+                <input type="text" id="username" name="username" value="<%= user.username %>" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-form-label">Password (leave blank to keep current):</label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="interests" class="col-form-label">Interests:</label>
+                <select id="interests" name="interests" class="form-control" required>
+                    <% if (user.interests === 'AIML') { %>
+                        <option value="AIML" selected>AIML</option>
+                    <% } else { %>
+                        <option value="AIML">AIML</option>
+                    <% } %>
+                    <% if (user.interests === 'Cybersecurity') { %>
+                        <option value="Cybersecurity" selected>Cybersecurity</option>
+                    <% } else { %>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                    <% } %>
+                    <% if (user.interests === 'Computer Networking') { %>
+                        <option value="Computer Networking" selected>Computer Networking</option>
+                    <% } else { %>
+                        <option value="Computer Networking">Computer Networking</option>
+                    <% } %>
+                    <% if (user.interests === 'Cloud Computing') { %>
+                        <option value="Cloud Computing" selected>Cloud Computing</option>
+                    <% } else { %>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                    <% } %>
+                    <% if (user.interests === 'Computer Graphics') { %>
+                        <option value="Computer Graphics" selected>Computer Graphics</option>
+                    <% } else { %>
+                        <option value="Computer Graphics">Computer Graphics</option>
+                    <% } %>
+                    <% if (user.interests === 'IoT') { %>
+                        <option value="IoT" selected>IoT</option>
+                    <% } else { %>
+                        <option value="IoT">IoT</option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="domain" class="col-form-label">Domain:</label>
+                <input type="text" id="domain" name="domain" value="<%= user.domain %>" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+    </div>
+</body>
+</html>
+                        

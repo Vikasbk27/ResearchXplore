@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    <style>
+        /* Internal CSS styles */
+        /* Override Bootstrap's default link color */
+        a {
+            color: #007bff; /* Blue color similar to Bootstrap's default */
+        }
+        
+        /* Center align text in the header */
+        header.jumbotron {
+            margin-bottom: 20px;
+        }
+        
+        /* Style for the card titles */
+        .card-title {
+            font-size: 1.25rem; /* Larger font size for titles */
+            margin-bottom: 10px; /* Space below the title */
+        }
+        
+        /* Style for the card body */
+        .card-body {
+            height: 100%; /* Ensure the card body takes full height */
+        }
+        
+        /* Ensure consistency in card heights */
+        .card {
+            height: 100%; /* Ensure all cards are of equal height */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Style for card text */
+        .card-text {
+            margin-bottom: 8px; /* Space between text lines */
+        }
+        
+        /* Style for the read more button */
+        .btn-primary {
+            margin-top: auto; /* Push button to the bottom */
+            align-self: flex-end; /* Align button to the right */
+        }
+        
+        /* Ensure proper spacing between columns */
+        .row {
+            justify-content: center; /* Center align columns */
+        }
+        
+        /* Ensure proper spacing between columns */
+        .col-md-4 {
+            margin-bottom: 20px; /* Space between columns */
+        }
+        
+        /* Ensure proper responsiveness on smaller screens */
+        @media (max-width: 768px) {
+            .col-md-4 {
+                flex-basis: 100%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="jumbotron text-center">
+        <h1 class="display-5">Research Xlpore</h1>
+        <nav class="nav justify-content-center">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+            <a class="nav-link" href="/addPaper">Add Paper</a>
+            <a class="nav-link" href="/profile">Profile</a>
+            <a class="nav-link" href="/logout">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2 class="text-center">Results for "<%= query %>"</h2>
+        <div class="row">
+            <% results.forEach(result => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title"><%= result.title %></h3>
+                            <p class="card-text">Author: <%= result.author %></p>
+                            <p class="card-text">Field: <%= result.field %></p>
+                            <a href="<%= result.url %>" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>

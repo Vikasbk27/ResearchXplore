@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Xlpore</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        header {
+            background-color: #eaeff4;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .hero {
+            margin: 20px 0;
+        }
+        .explore {
+            margin: 20px;
+        }
+        .paper-block {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <%- include('partials/navbar') %>
+        <h1>Welcome to the Research Xlpore Nest</h1>
+    </header>
+    <section class="hero">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    
+                    <img src="images/Cyber-Security-Icon-Concept-2-1.jpeg" class="d-block w-75" alt="Slide 1" style="margin: 0 auto;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 style="color: rgb(228, 12, 12);">CyberSecurity</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                      </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/AIML.jpg" class="d-block w-75" alt="Slide 2" style="margin: 0 auto;">
+                </div>
+                <div class="carousel-item">
+                    <img src="images\Blockchain-in-hiring.png" class="d-block w-75" alt="Slide 3" style="margin: 0 auto;" >
+                </div>
+                <div class="carousel-item">
+                    <img src="images\627e650f22a9a52cd54085be_Computer networking.jpg" class="d-block w-75"  alt="Slide 4" style="margin: 0 auto;">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/14_01edge-cloud-computing-900x600.jpg" class="d-block w-75" alt="Slide 5" style="margin: 0 auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="explore">
+        <div class="container">
+          <h2>Explore Top-Rated Research Papers</h2>
+          <div class="row">
+            <% papers.slice(0, 6).forEach(paper => { %>
+              <div class="col-md-4">
+                <div class="paper-block">
+                  <strong>Title:</strong> <%= paper.title %> <br>
+                  <strong>Author:</strong> <%= paper.author %> <br>
+                  <strong>Field:</strong> <%= paper.field %> <br>
+                  <strong>Average Rating:</strong> <%= paper.avg_rating %> <br>
+                  <a href="<%= paper.url %>">Read more</a>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+    
+    <%- include('partials/footer') %>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #f2f2f2, #fff); /* gradient background */
+            font-family: Arial, sans-serif;
+        }
+        .jumbotron {
+            background-color: #333; /* dark gray background */
+            color: #fff; /* white text */
+        }
+        .nav-link {
+            color: #fff; /* white text */
+            text-decoration: none;
+        }
+        .nav-link:hover {
+            color: #ccc; /* light gray text on hover */
+        }
+        .container {
+            max-width: 800px; /* limit the width of the container */
+            margin: 40px auto; /* add some margin */
+            padding: 20px; /* add some padding */
+            background-color: #fff; /* white background */
+            border: 1px solid #ddd; /* light gray border */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add some shadow */
+        }
+        .form-group {
+            margin-bottom: 20px; /* add some margin */
+        }
+        .form-control {
+            height: 40px; /* increase the height of the input fields */
+            padding: 10px; /* add some padding */
+            font-size: 16px; /* increase the font size */
+        }
+        .btn-primary {
+            background-color: #337ab7; /* blue background */
+            border-color: #2e6da4; /* blue border */
+            color: #fff; /* white text */
+            padding: 10px 20px; /* add some padding */
+            font-size: 16px; /* increase the font size */
+        }
+        .btn-primary:hover {
+            background-color: #23527c; /* darker blue background on hover */
+            border-color: #1d4e7a; /* darker blue border on hover */
+        }
+    </style>
+</head>
+<body>
+    <header class="jumbotron text-center">
+        <h1 class="display-5">Research Xlpore</h1>
+        <nav class="nav justify-content-center">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/register">Register</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="text-center">Login</h1>
+        
+        <% if (typeof error !== 'undefined') { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="username" class="col-form-label">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-form-label">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</body>
+</html>

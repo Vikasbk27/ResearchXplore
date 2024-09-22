@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Paper</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #f2f2f2, #fff); /* gradient background */
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #333; /* dark gray background */
+            color: #fff; /* white text */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff; /* white text */
+        }
+        nav a:hover {
+            color: #ccc; /* light gray text on hover */
+        }
+       .container {
+            max-width: 800px; /* limit the width of the container */
+            margin: 40px auto; /* add some margin */
+            padding: 20px; /* add some padding */
+            background-color: #fff; /* white background */
+            border: 1px solid #ddd; /* light gray border */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add some shadow */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label, input, button {
+            margin: 10px 0;
+        }
+       .form-control {
+            height: 40px; /* increase the height of the input fields */
+            padding: 10px; /* add some padding */
+            font-size: 16px; /* increase the font size */
+        }
+       .btn-primary {
+            background-color: #337ab7; /* blue background */
+            border-color: #2e6da4; /* blue border */
+            color: #fff; /* white text */
+            padding: 10px 20px; /* add some padding */
+            font-size: 16px; /* increase the font size */
+        }
+       .btn-primary:hover {
+            background-color: #23527c; /* darker blue background on hover */
+            border-color: #1d4e7a; /* darker blue border on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="display-5">Research Xplore</h1>
+        <nav class="nav justify-content-center">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+            <a class="nav-link" href="/search">Search</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 class="text-center">Add Paper</h1>
+        <form action="/addPaper" method="post">
+            <div class="form-group">
+                <label for="title" class="col-form-label">Title:</label>
+                <input type="text" id="title" name="title" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="author" class="col-form-label">Author:</label>
+                <input type="text" id="author" name="author" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="field" class="col-form-label">Field:</label>
+                <input type="text" id="field" name="field" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="url" class="col-form-label">URL:</label>
+                <input type="url" id="url" name="url" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Paper</button>
+        </form>
+    </div>
+</body>
+</html>
